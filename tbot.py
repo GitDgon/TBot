@@ -14,7 +14,7 @@ def site(massage):
 
 
 
-@bot.message_handler(commands=['start'])
+@bot.message_handler(commands=['date'])
 def start(message):
     print(message.from_user.username)
     if message.from_user.username is None:
@@ -33,7 +33,7 @@ def start(message):
 def info(message):
     if message.text.lower() == 'привет':
         bot.send_message(message.chat.id, f'Привет, {message.from_user.first_name} {message.from_user.language_code}')
-    elif message.text.lower() == 'id':
+    elif message.text.lower() == '/id':
         bot.reply_to(message, f'ID: {message.from_user.id}')
 
 
