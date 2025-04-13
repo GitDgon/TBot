@@ -29,9 +29,19 @@ def welcom(message):
 def save_username(message):
     chat_id = message.chat.id
     name = message.text
+    users[chat_id]['name'] = name
+    print(users)
+    bot.send_message(chat_id, f'{name}, Укажи фамилию!')
+    bot.register_next_step_handler(message, save_surname)
 
-
-    pass
+def save_surname(message):
+    chat_id = message.chat.id
+    surname = message.text
+    users[chat_id]['surname'] = surname
+    name = users[chat_id]['name']
+    print(users[chat_id]['name'])
+    bot.send_message(chat_id, f'{surname} {name}, вы зарегистрированы!')  #(users[chat_id]['name']))
+    #bot.register_next_step_handler(message, save_surname())
 
 
 
