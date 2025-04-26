@@ -73,7 +73,7 @@ def start(message):
 def command(message):
     baner = str('pingtest')
     chat_id = -1002654832876
-    #425116038
+
     print(type(chat_id))
     print(chat_id)
     bot.send_message(chat_id, f'Проверка: {baner}')
