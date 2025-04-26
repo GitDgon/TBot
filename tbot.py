@@ -39,9 +39,18 @@ def save_surname(message):
     surname = message.text
     users[chat_id]['surname'] = surname
     name = users[chat_id]['name']
-    print(users[chat_id]['name'])
+
+    print(users)
     bot.send_message(chat_id, f'{surname} {name}, вы зарегистрированы!')  #(users[chat_id]['name']))
     #bot.register_next_step_handler(message, save_surname())
+
+
+@bot.message_handler(commands=['whomy'])
+def whomy(message):
+    chat_id = message.chat.id
+    surname = users[chat_id]['surname']
+    name = users[chat_id]['name']
+    bot.send_message(chat_id, f'Вы: {name} {surname}')
 
 
 
@@ -64,6 +73,7 @@ def start(message):
 def command(message):
     baner = str('pingtest')
     chat_id = -1002654832876
+    #425116038
     print(type(chat_id))
     print(chat_id)
     bot.send_message(chat_id, f'Проверка: {baner}')
